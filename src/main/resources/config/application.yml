@@ -57,6 +57,7 @@ server:
     session:
         cookie:
             http-only: true
+    context-path: /merlion
 
 info:
     project:
@@ -105,5 +106,4 @@ jhipster:
 # More documentation is available at:
 # https://jhipster.github.io/common-application-properties/
 # ===================================================================
-
 application:

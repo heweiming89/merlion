@@ -1,10 +1,7 @@
 package com.heweiming.merlion.service;
 
 import com.heweiming.merlion.domain.User;
-
 import io.github.jhipster.config.JHipsterProperties;
-
-import org.apache.commons.lang3.CharEncoding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -16,6 +13,7 @@ import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.internet.MimeMessage;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 /**
@@ -57,7 +55,7 @@ public class MailService {
         // Prepare message using a Spring helper
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
-            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, isMultipart, CharEncoding.UTF_8);
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, isMultipart, StandardCharsets.UTF_8.name());
             message.setTo(to);
             message.setFrom(jHipsterProperties.getMail().getFrom());
             message.setSubject(subject);
